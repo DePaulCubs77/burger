@@ -2,7 +2,7 @@ var connection = require("../config/connection.js");
   
  // Thses functions are made up of an object that will query the database
 var burger = {
-	select: function(cb) {
+	read: function(cb) {
 		connection.query ("SELECT * FROM burgers", function(err,res) {
 			if (err) throw err;
 			cb(res);
