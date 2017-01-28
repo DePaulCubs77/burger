@@ -10,9 +10,9 @@ var app = express();
 // Sets an initial port
 var PORT = 3000;
 
-// Router
-var router = require('./controllers/burgers_controllers.js');
-app.use('/', router);
+// // Router
+// var router = require('./controllers/burgers_controllers.js');
+// app.use('/', router);
 
 // Serve static content for the app from the "public" directory in the application directory
 app.use(express.static(process.cwd() + "/public"));

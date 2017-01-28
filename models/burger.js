@@ -1,4 +1,4 @@
-var connection = require("..config/connection.js");
+var connection = require("../config/connection.js");
   
  // Thses functions are made up of an object that will query the database
 var burger = {
