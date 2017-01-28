@@ -10,23 +10,25 @@ var app = express();
 // Sets an initial port
 var PORT = 3000;
 
-// // Serve static contentfor the app from the "public" directory in the application directory
-// app.use(express.static(__dirname + "/public"));
+// Router
+var router = require('./controllers/burgers_controllers.js');
+app.use('/', router);
 
-// // Override with POST having ?_method=DELETE
-// var exphbs = require("express-handlebars");
+// Serve static content for the app from the "public" directory in the application directory
+app.use(express.static(process.cwd() + "/public"));
 
-// app.engine("handlebars", exphbs({ defaultLayout: "main"}));
-// app.set("view engine", "handlebars");
+// Parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}));
 
-// var mysql = require("mysql");
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
-// var connection = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "",
-// 	database: "burgers_db"
-// });
+
+// Override with POST having ?_method=DELETE
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 
 // Starts the server to begin listening
